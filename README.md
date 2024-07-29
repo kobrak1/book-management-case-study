@@ -2,7 +2,7 @@ Here's a structured way to document your API endpoints in `API.md`. Each section
 
 ```markdown
 
-#API Documentation
+# API Documentation
 
 ## User Endpoints
 
