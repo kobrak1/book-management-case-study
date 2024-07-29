@@ -311,5 +311,3 @@
 - **500 Internal Server Error:** Error fetching favorite books.
 
 ```
-
-Feel free to adjust any details based on your exact implementation or specific needs.
