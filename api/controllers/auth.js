@@ -1,13 +1,10 @@
-const loginRouter = require("express").Router()
-const registerRouter = require("express").Router()
-
 const config = require("../utils/config")
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
 const User = require("../models/User")
 
 // User Login
-loginRouter.post("/", async (req, res, next) => {
+const login = async (req, res, next) => {
   const { email, password } = req.body
 
   if (!email || !password) {
@@ -45,10 +42,10 @@ loginRouter.post("/", async (req, res, next) => {
   } catch (error) {
     next(error)
   }
-})
+}
 
 // User Registration
-registerRouter.post("/", async (req, res, next) => {
+const register = async (req, res, next) => {
   const { username, email, password } = req.body
 
   // validate request data
@@ -90,6 +87,6 @@ registerRouter.post("/", async (req, res, next) => {
   } catch (error) {
     next(error)
   }
-})
+}
 
-module.exports = { loginRouter, registerRouter }
+module.exports = { login, register }
