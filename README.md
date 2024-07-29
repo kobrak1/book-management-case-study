@@ -1,5 +1,3 @@
-Here's a structured way to document your API endpoints in `API.md`. Each section includes the endpoint, method, request format, and response format:
-
 ```markdown
 
 # API Documentation
