@@ -7,9 +7,9 @@ services:
     ports:
       - "3000:3000"
     environment:
-      MONGODB_URI: mongodb+srv://alto:HRlqqTP7ps6SyQyU@cluster0.tmu5ihc.mongodb.net/book-management?retryWrites=true&w=majority&appName=Cluster0
-      TEST_MONGODB_URI: mongodb+srv://alto:HRlqqTP7ps6SyQyU@cluster0.tmu5ihc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-      SECRET: Imbve5Vrt6VgYMZadm7O2zGYZ2fZgD3p
+      NODE_ENV: production
+      MONGODB_URI: ${MONGODB_URI}
+      SECRET: ${SECRET}
     depends_on:
       - mongo
     volumes:
