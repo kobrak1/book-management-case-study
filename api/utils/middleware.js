@@ -3,6 +3,7 @@ const Book = require('../models/book')
 const logger = require('./logger')
 const jwt = require('jsonwebtoken')
 
+// logs the request info for each API call
 const reqLogger = (req, res, next) => {
   logger.info('Method:', req.method)
   logger.info('Path: ', req.path)
@@ -11,10 +12,12 @@ const reqLogger = (req, res, next) => {
   next()
 }
 
+// error handler catches requests to unknown endpoints
 const unknownEndPoint = (req, res) => {
   res.status(404).end()
 }
 
+// global error handler
 const errorHandler = (error, req, res, next) => {
   console.error(error.message)
 
@@ -33,6 +36,7 @@ const errorHandler = (error, req, res, next) => {
   next(error)
 }
 
+// middleware extracts the token sent from client
 const tokenExtractor = (req, res, next) => {
   const authorization = req.get('authorization')
 
@@ -48,12 +52,14 @@ const tokenExtractor = (req, res, next) => {
   } else next()
 }
 
+// middleware extracts the authorized user
 const userExtractor = async (req, res, next) => {
   req.user = await User.findById(req.token.id)
 
   next()
 }
 
+// middleware extracts the authorized user's creations
 const bookExtractor = async (req, res, next) => {
   req.book = await Book.findById(req.params.id)
 
